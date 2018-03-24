@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="10"
+    android:background="@color/colorPrimary"
     tools:context="tito.example.com.cryptonews.MainActivity">
 
     <android.support.v7.widget.RecyclerView
