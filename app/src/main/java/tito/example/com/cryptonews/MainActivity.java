@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -30,10 +31,11 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.market:
                     showMarketDetails();
-                    return true;
+                    break;
                 case R.id.news:
                     showNews();
-                    return true;
+                    Log.d("goodnav","reached");
+                   break;
 
             }
             return false;
@@ -41,16 +43,20 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void showNews() {
+        Log.d("good","reached");
         newsService.getCryptoNews().enqueue(new Callback<Response>() {
             @Override
             public void onResponse(retrofit.Response<Response> response, Retrofit retrofit) {
-             newsAdapter=new NewsAdapter(response.body().getArticles(),MainActivity.this);
+
+                newsAdapter=new NewsAdapter(response.body().getArticles(),MainActivity.this);
                newsAdapter.notifyDataSetChanged();
                 recyclerView.setAdapter(newsAdapter);
             }
 
             @Override
             public void onFailure(Throwable t) {
+       Log.d("error",t.getMessage());
+       Log.d("url",t.getCause()+"");
 
             }
         });

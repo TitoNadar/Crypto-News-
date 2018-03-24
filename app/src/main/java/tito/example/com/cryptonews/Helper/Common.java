@@ -8,7 +8,7 @@ import tito.example.com.cryptonews.Remote.RetrofitClient;
  */
 
 public class Common {
-    private static String Base_Url="https://newsapi.org/";
+    private static String Base_Url="http://newsapi.org/";
     public static final String API_KEY="44aa4bd036d74cd9a38c0c5f485c3557";
 
     public static NewsService getNewsService()

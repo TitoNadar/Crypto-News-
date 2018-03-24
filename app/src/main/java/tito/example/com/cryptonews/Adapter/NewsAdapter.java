@@ -102,6 +102,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsListViewHolder>
         catch (Exception ex) {
             ex.printStackTrace();
         }
+        holder.article_source.setText(articlesList.get(position).getSource().getName());
+
     }
 
 
